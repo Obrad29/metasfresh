@@ -34,8 +34,8 @@ import java.util.List;
 @RequestMapping(PayPalRestEndpoint.ENDPOINT)
 public class PayPalRestController implements PayPalRestEndpoint
 {
-	private static final String CLIENT_ID = "AYSq3RDGsmBLJE-otTkBtM-jBRd1TCQwFf9RGfwddNXWz0uFU9ztymylOhRS";
-	private static final String CLIENT_SECRET = "EGnHDxD_qRPdaLdZz8iCr8N7_MzF-YHPTkjs6NKYQvQSBngp4PTTVWkPZRbL";
+	private static final String CLIENT_ID = "ATOk-R9ufyjporznZqFkcXdaiLfxon6bwD-DrT271-cz79j-b4S15AOoor6sQZ70PvrEATWuX-WeE_X-";
+	private static final String CLIENT_SECRET = "EM7laJWeQK7EvJvrkYDvSKpNvorlMHKiLAE5N2oqDdqqXJNiKYGQCRXKMA6OU_peZHwL_eGQwhRdFvrH";
 	private static final String EXECUTION_MODE = "sandbox";
 
 	private Payment capturePayment()
@@ -44,8 +44,8 @@ public class PayPalRestController implements PayPalRestEndpoint
 		payer.setPaymentMethod("paypal");
 
 		RedirectUrls redirectUrls = new RedirectUrls();
-		redirectUrls.setCancelUrl("http://localhost:3000/crunchifyCancel");
-		redirectUrls.setReturnUrl("http://localhost:3000/crunchifyReturn");
+		redirectUrls.setCancelUrl("http://localhost:3000/cancel");
+		redirectUrls.setReturnUrl("http://localhost:3000/return");
 
 		Details details = new Details();
 		details.setShipping("7.27");
@@ -82,7 +82,7 @@ public class PayPalRestController implements PayPalRestEndpoint
 			payment.setId(myPayment.getId());
 
 			PaymentExecution paymentExecution = new PaymentExecution();
-			paymentExecution.setPayerId("<!---- Add your PayerID here ---->");
+			paymentExecution.setPayerId("123");
 
 			Payment createdAuthPayment = payment.execute(apiContext, paymentExecution);
 
